@@ -13,10 +13,10 @@ def get_light_positions(c_image):
     filtered_img = ndimage.maximum_filter(convolved_img, 10)
     position_ = np.argwhere(filtered_img == convolved_img)
     position_ = list(filter(lambda l: convolved_img[l[0]][l[1]] > 0.1, position_))
-    x_pos = [p[0] for p in position_]
-    y_pos = [p[1] for p in position_]
+    x_pos = [p[1] for p in position_]
+    y_pos = [p[0] for p in position_]
 
-    return y_pos, x_pos
+    return x_pos, y_pos
 
 
 def find_lights(c_image):
